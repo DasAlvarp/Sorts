@@ -1,32 +1,49 @@
-import intGen.Generator;
 import sorts.SortBubble;
-import sorts.SortSelection;
+import utils.Misc;
 
-import java.security.Timestamp;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
 
 /**
  * Created by alvaro on 11/21/14.
  */
 public class Driver
 {
-    public static void main(String[] args)
+    public static final int NUMBERNUM = 500;
+
+    public static void main(String[] args) throws IOException
     {
-        Generator toGen = new Generator();
+        Random randy = new Random();
+        Misc wat = new Misc();
 
-        int[] toSort = toGen.generate(4);
-        SortBubble soSelect = new SortBubble();
-        double first = System.currentTimeMillis();
-        toSort = soSelect.sort(toSort);
 
-        System.out.println("Sort took" + (first - System.currentTimeMillis()));
+        File numbers = new File("numbers.txt");
+        FileWriter writer = new FileWriter(numbers);
+        PrintWriter out = new PrintWriter("numbers.txt", "UTF-8");
+        numbers.setWritable(true);
 
-        for(int x = 0; x < toSort.length; x++)
+        for (int x = 0; x < NUMBERNUM; x++)
         {
-            System.out.println(toSort[x] + " WEEEEEEEE");
+            System.out.println(x);
+            out.println(randy.nextInt(NUMBERNUM));
+
+
         }
+
+        out.close();
+        SortBubble theSort = new SortBubble();
+
+        int[] listy = theSort.sort(numbers);
+
+
+        wat.arToF(listy);
+
+
+
+
     }
 
 

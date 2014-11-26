@@ -1,5 +1,8 @@
 package sorts;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Created by alvaro on 11/21/14.
  */
@@ -20,12 +23,19 @@ public class SortBubble extends Sorter
                 }
 
             }
-            if(didStuff == false)
+            if(!didStuff)
             {
                 return sorter;
             }
         }
         return sorter;
     }
+
+    public int[] sort(File toFiled) throws IOException
+    {
+
+        return sort(super.toArray(toFiled));
+    }
+
 
 }
