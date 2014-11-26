@@ -14,7 +14,7 @@ public class Misc
     public void arToF(int[] toFile) throws IOException
     {
         Random randy = new Random();
-        String name = "f" + randy.nextInt(123) + ".txt";
+        String name = "f" + ".txt";
         PrintWriter out = new PrintWriter(name, "UTF-8");
 
         for(int x = 0; x < toFile.length; x++)

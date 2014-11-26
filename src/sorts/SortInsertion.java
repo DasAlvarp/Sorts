@@ -33,18 +33,22 @@ public class SortInsertion extends Sorter
     public int[] add(int[] currList, int toAdd)
     {
         int[] returnList = new int[currList.length + 1];
-        int centerIndex = 0;
+        ArrayList<Integer> theArray = new ArrayList<Integer>();
         for (int x = 0; x < currList.length && currList[x] < toAdd; x++)
         {
-            returnList[x] = currList[x];
-            centerIndex = x;
+            theArray.add(currList[x]);
         }
 
-        returnList[centerIndex] = toAdd;
+        theArray.add(toAdd);
 
-        for (int x = centerIndex + 1; x < currList.length; x++)
+        for (int x = theArray.size() - 1; x < currList.length; x++)
         {
-            returnList[x + 1] = currList[x];
+            theArray.add(currList[x]);
+        }
+
+        for(int x = 0; x < theArray.size(); x++)
+        {
+            returnList[x] = theArray.get(x);
         }
         return returnList;
 
