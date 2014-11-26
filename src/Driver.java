@@ -1,4 +1,5 @@
 import sorts.SortBubble;
+import sorts.SortInsertion;
 import utils.Misc;
 
 import java.io.File;
@@ -27,19 +28,21 @@ public class Driver
 
         for (int x = 0; x < NUMBERNUM; x++)
         {
-            System.out.println(x);
             out.println(randy.nextInt(NUMBERNUM));
-
-
         }
-
         out.close();
+
+        double d = System.currentTimeMillis();
         SortBubble theSort = new SortBubble();
-
         int[] listy = theSort.sort(numbers);
-
-
         wat.arToF(listy);
+        System.out.println("Bubble Sort: " + (System.currentTimeMillis() - d));
+
+        double q = System.currentTimeMillis();
+        SortInsertion inSort = new SortInsertion();
+        int[] nList = inSort.sort(numbers);
+        wat.arToF(nList);
+        System.out.println("Insertion Sort: " + (System.currentTimeMillis() - q));
 
 
 
