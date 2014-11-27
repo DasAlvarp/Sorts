@@ -33,7 +33,6 @@ public class SortBubble extends Sorter
 
     public int[] sort(File toFiled) throws IOException
     {
-
         return sort(super.toArray(toFiled));
     }
 

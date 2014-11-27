@@ -53,11 +53,18 @@ public class Driver
         System.out.println("KwikSort: " + (System.currentTimeMillis() - r));
 
 
-         double t = System.currentTimeMillis();
-         SortMerge mSort = new SortMerge();
-         int[] mList = mSort.sort(numbers);
-         wat.arToF(mList);
-         System.out.println("MergSort: " + (System.currentTimeMillis() - t));
+        double t = System.currentTimeMillis();
+        SortMerge mSort = new SortMerge();
+        int[] mList = mSort.sort(numbers);
+        wat.arToF(mList);
+        System.out.println("MergSort: " + (System.currentTimeMillis() - t));
+
+
+        double h = System.currentTimeMillis();
+        SortMerge hSort = new SortMerge();
+        int[] hList = hSort.sort(numbers);
+        wat.arToF(hList);
+        System.out.println("HeapSort: " + (System.currentTimeMillis() - h));
 
 
 
