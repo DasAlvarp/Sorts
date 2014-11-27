@@ -1,5 +1,6 @@
 import sorts.SortBubble;
 import sorts.SortInsertion;
+import sorts.SortKwik;
 import utils.Misc;
 
 import java.io.File;
@@ -44,10 +45,11 @@ public class Driver
         wat.arToF(nList);
         System.out.println("Insertion Sort: " + (System.currentTimeMillis() - q));
 
-
-
-
+        double r = System.currentTimeMillis();
+        SortKwik kSort = new SortKwik();
+        int[] kList = kSort.sort(numbers);
+        wat.arToF(kList);
+        System.out.println("Insertion Sort: " + (System.currentTimeMillis() - r));
     }
-
 
 }
