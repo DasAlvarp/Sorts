@@ -1,6 +1,7 @@
 import sorts.SortBubble;
 import sorts.SortInsertion;
 import sorts.SortKwik;
+import sorts.SortMerge;
 import utils.Misc;
 
 import java.io.File;
@@ -49,7 +50,25 @@ public class Driver
         SortKwik kSort = new SortKwik();
         int[] kList = kSort.sort(numbers);
         wat.arToF(kList);
-        System.out.println("Insertion Sort: " + (System.currentTimeMillis() - r));
+        System.out.println("KwikSort: " + (System.currentTimeMillis() - r));
+
+
+         double t = System.currentTimeMillis();
+         SortMerge mSort = new SortMerge();
+         int[] mList = mSort.sort(numbers);
+         wat.arToF(mList);
+         System.out.println("MergSort: " + (System.currentTimeMillis() - t));
+
+
+
+
+
+
+
+
+
+
+
     }
 
 }
