@@ -75,13 +75,11 @@ public class SortHeap extends Sorter
                     {
                         switchTwo(array, left, currentIndex);
                         currentIndex = left;
-                        continue;
                     }
                     else
                     {
                         switchTwo(array, right, currentIndex);
                         currentIndex = right;
-                        continue;
                     }
                 }
                 else
@@ -90,7 +88,6 @@ public class SortHeap extends Sorter
                     {
                         switchTwo(array, right, currentIndex);
                         currentIndex = right;
-                        continue;
                     }
                     else
                     {
