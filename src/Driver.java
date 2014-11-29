@@ -1,7 +1,4 @@
-import sorts.SortBubble;
-import sorts.SortInsertion;
-import sorts.SortKwik;
-import sorts.SortMerge;
+import sorts.*;
 import utils.Misc;
 
 import java.io.File;
@@ -15,7 +12,7 @@ import java.util.Random;
  */
 public class Driver
 {
-    public static final int NUMBERNUM = 500;
+    public static final int NUMBERNUM = 10000;
 
     public static void main(String[] args) throws IOException
     {
@@ -61,10 +58,18 @@ public class Driver
 
 
         double h = System.currentTimeMillis();
-        SortMerge hSort = new SortMerge();
+        SortHeap hSort = new SortHeap();
         int[] hList = hSort.sort(numbers);
         wat.arToF(hList);
         System.out.println("HeapSort: " + (System.currentTimeMillis() - h));
+
+
+
+        double tr = System.currentTimeMillis();
+        SortTree trSort = new SortTree();
+        int[] trList = trSort.sort(numbers);
+        wat.arToF(trList);
+        System.out.println("TreeSort: " + (System.currentTimeMillis() - tr));
 
 
 
