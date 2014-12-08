@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Driver
 {
-    public static final int NUMBERNUM = 10000;
+    public static final int NUMBERNUM = 50000;
 
     public static void main(String[] args) throws IOException
     {
@@ -21,7 +21,6 @@ public class Driver
 
 
         File numbers = new File("numbers.txt");
-        FileWriter writer = new FileWriter(numbers);
         PrintWriter out = new PrintWriter("numbers.txt", "UTF-8");
         numbers.setWritable(true);
 

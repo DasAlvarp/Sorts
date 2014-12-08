@@ -14,17 +14,21 @@ public class Sorter
     protected int[] toArray(File toSort) throws IOException
     {
         BufferedReader sortRead = new BufferedReader(new FileReader(toSort));
-        ArrayList<Integer> toArray = new ArrayList<Integer>();
+        ArrayList<Integer> arrayToChange = new ArrayList<Integer>();
+
+
         while(sortRead.ready())
         {
-            toArray.add(Integer.parseInt(sortRead.readLine()));
+            arrayToChange.add(Integer.parseInt(sortRead.readLine()));
         }
-        int[] returner = new int[toArray.size()];
 
-        for(int x = 0; x < toArray.size(); x++)
+        int[] returner = new int[arrayToChange.size()];
+
+        for(int x = 0; x < arrayToChange.size(); x++)
         {
-            returner[x] = toArray.get(x);
+            returner[x] = arrayToChange.get(x);
         }
+
         return returner;
     }
     public int[] sort(int[] sorted)
