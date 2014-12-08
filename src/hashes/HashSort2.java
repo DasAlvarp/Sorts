@@ -1,25 +1,19 @@
 package hashes;
 
 
+import java.util.ArrayList;
+
 /**
  * Created by alvaro on 12/7/14.
  */
 public class HashSort2
 {
-    public String[] table = new String[20000];
+    public ArrayList<String>[] table = new ArrayList[60000];
 
 
-    private void init()
-    {
-        for(int x = 0; x < table.length; x++)
-        {
-            table[x] = null;
-        }
-    }
 
     public void fill(int[] sorter)
     {
-        init();
 
         for(int x = 0; x < sorter.length; x++)
         {
@@ -31,28 +25,18 @@ public class HashSort2
     public void insert(int address)
     {
         int point = getValue(address);
-        if(table[point] != null)
+        if(table[point] == null)
         {
-            insertAdd(address + 1, point);
+            ArrayList<String> f= new ArrayList<String>();
+            f.add("" + address);
+            table[point] = f;
         }
         else
         {
-            table[point] = "" + address;
+
+            table[point].add("" + address);
         }
 
-    }
-
-    private void insertAdd(int address, int point)
-    {
-        point = fixCollision(address, point);
-        if(table[point] != null)
-        {
-            insertAdd(address + 1, point);
-        }
-        else
-        {
-            table[point] = "" + address;
-        }
     }
 
 
@@ -71,7 +55,7 @@ public class HashSort2
 
         total = Math.abs(total);
 
-        total %= table.length;
+        total = shrinkTo(total);
 
         return total;
 
@@ -79,7 +63,18 @@ public class HashSort2
 
     public int fixCollision(int address, int failedAddress)
     {
-        return (address + failedAddress) % table.length;
+        return shrinkTo(address * 23 + failedAddress * address);
     }
+
+    private int shrinkTo(int toShrink)
+    {
+        if(toShrink >= table.length)
+        {
+            toShrink = toShrink / 7;
+            toShrink = shrinkTo(toShrink);
+        }
+        return toShrink;
+    }
+
 
 }

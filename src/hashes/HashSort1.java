@@ -6,7 +6,7 @@ package hashes;
  */
 public class HashSort1
 {
-    public String[] table = new String[20000];
+    public String[] table = new String[60000];
 
     private void init()
     {
@@ -50,7 +50,7 @@ public class HashSort1
         point = fixCollision(address, point);
         if(table[point] != null)
         {
-            insertAdd(address + 1, point);
+            insertAdd(address + 13, point);
         }
         else
         {
@@ -80,7 +80,7 @@ public class HashSort1
 
     public int fixCollision(int address, int failedAddress)
     {
-        return (address + failedAddress) % table.length;
+        return (failedAddress + 13 * address) % table.length;
     }
 
 }

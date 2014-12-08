@@ -37,6 +37,21 @@ public class Node
         return toTraverse;
     }
 
+    public ArrayList<Integer> getBackTraversal()
+    {
+        ArrayList<Integer> toTraverse = new ArrayList<Integer>();
+        if(left != null)
+        {
+            backTraverse(this.left, toTraverse);
+        }
+        toTraverse.add(this.item);
+        if(right != null)
+        {
+            backTraverse(this.right, toTraverse);
+        }
+        return toTraverse;
+    }
+
     private void traverse(Node head, ArrayList<Integer> addHere)
     {
         if(head.left != null)
@@ -49,6 +64,20 @@ public class Node
             traverse(head.right, addHere);
         }
     }
+
+    private void backTraverse(Node head, ArrayList<Integer> addHere)
+    {
+        if(head.right != null)
+        {
+            backTraverse(head.right, addHere);
+        }
+        addHere.add(head.item);
+        if(head.left != null)
+        {
+            backTraverse(head.left, addHere);
+        }
+    }
+
 
     public void add(int n)
     {

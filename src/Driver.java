@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class Driver
 {
-    public static final int NUMBERNUM = 10000;
+    public static final int NUMBERNUM = 50000;
 
     public static void main(String[] args) throws IOException
     {
@@ -21,7 +21,8 @@ public class Driver
         Misc wat = new Misc();
 
 
-        File numbers = new File("numbers.txt");
+
+        File numbers = new File("f.txt");
         PrintWriter out = new PrintWriter("numbers.txt", "UTF-8");
         numbers.setWritable(true);
 
@@ -33,13 +34,19 @@ public class Driver
 
         Sorter genericSort = new Sorter();
 
+
+        SortFlip treSort = new SortFlip();
+        int[] treList = treSort.sort(new File("numbers.txt"));
+        wat.arToF(treList);
+
+
         double d = System.currentTimeMillis();
         SortBubble theSort = new SortBubble();
         int[] listy = theSort.sort(numbers);
         wat.arToF(listy);
         System.out.println("Bubble Sort: " + (System.currentTimeMillis() - d));
 
-
+        wat.arToF(treList);
 
         double q = System.currentTimeMillis();
         SortInsertion inSort = new SortInsertion();
@@ -47,12 +54,16 @@ public class Driver
         wat.arToF(nList);
         System.out.println("Insertion Sort: " + (System.currentTimeMillis() - q));
 
+        wat.arToF(treList);
+
+
         double r = System.currentTimeMillis();
         SortKwik kSort = new SortKwik();
         int[] kList = kSort.sort(numbers);
         wat.arToF(kList);
         System.out.println("KwikSort: " + (System.currentTimeMillis() - r));
 
+        wat.arToF(treList);
 
         double t = System.currentTimeMillis();
         SortMerge mSort = new SortMerge();
@@ -60,6 +71,7 @@ public class Driver
         wat.arToF(mList);
         System.out.println("MergSort: " + (System.currentTimeMillis() - t));
 
+        wat.arToF(treList);
 
         double h = System.currentTimeMillis();
         SortHeap hSort = new SortHeap();
@@ -67,6 +79,7 @@ public class Driver
         wat.arToF(hList);
         System.out.println("HeapSort: " + (System.currentTimeMillis() - h));
 
+        wat.arToF(treList);
 
 
         double tr = System.currentTimeMillis();
@@ -74,7 +87,7 @@ public class Driver
         int[] trList = trSort.sort(numbers);
         wat.arToF(trList);
         System.out.println("TreeSort: " + (System.currentTimeMillis() - tr));
-
+/*
 
         int[] toHash = genericSort.toArray(numbers);
         double hash1 = System.currentTimeMillis();
@@ -90,7 +103,7 @@ public class Driver
 
 
 
-
+*/
 
 
 
