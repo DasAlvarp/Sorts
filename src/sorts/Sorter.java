@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Sorter
 {
-    protected int[] toArray(File toSort) throws IOException
+    public int[] toArray(File toSort) throws IOException
     {
         BufferedReader sortRead = new BufferedReader(new FileReader(toSort));
         ArrayList<Integer> arrayToChange = new ArrayList<Integer>();

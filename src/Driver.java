@@ -1,8 +1,9 @@
+import hashes.HashSort1;
+import hashes.HashSort2;
 import sorts.*;
 import utils.Misc;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
@@ -12,7 +13,7 @@ import java.util.Random;
  */
 public class Driver
 {
-    public static final int NUMBERNUM = 50000;
+    public static final int NUMBERNUM = 10000;
 
     public static void main(String[] args) throws IOException
     {
@@ -30,11 +31,15 @@ public class Driver
         }
         out.close();
 
+        Sorter genericSort = new Sorter();
+
         double d = System.currentTimeMillis();
         SortBubble theSort = new SortBubble();
         int[] listy = theSort.sort(numbers);
         wat.arToF(listy);
         System.out.println("Bubble Sort: " + (System.currentTimeMillis() - d));
+
+
 
         double q = System.currentTimeMillis();
         SortInsertion inSort = new SortInsertion();
@@ -69,6 +74,19 @@ public class Driver
         int[] trList = trSort.sort(numbers);
         wat.arToF(trList);
         System.out.println("TreeSort: " + (System.currentTimeMillis() - tr));
+
+
+        int[] toHash = genericSort.toArray(numbers);
+        double hash1 = System.currentTimeMillis();
+        HashSort1 h1 = new HashSort1();
+        h1.fill(toHash);
+        System.out.println("Hash 1: " + (System.currentTimeMillis() - hash1));
+
+        int[] toHash2 = genericSort.toArray(numbers);
+        double hash2 = System.currentTimeMillis();
+        HashSort2 h2 = new HashSort2();
+        h2.fill(toHash2);
+        System.out.println("Hash 2: " + (System.currentTimeMillis() - hash2));
 
 
 
